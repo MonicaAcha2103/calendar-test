@@ -145,7 +145,7 @@ export default class Calendar extends React.Component {
     var stopDate = moment(stopDate);
     while (currentDate <= stopDate) {
       dateArray.push(moment(currentDate).format("YYYY"));
-      currentDate = moment(currentDate).add("year", 1);
+      currentDate = moment(currentDate).add(1, "year");
     }
     return dateArray;
   }
@@ -153,11 +153,17 @@ export default class Calendar extends React.Component {
     let months = [];
     let nextten = moment()
       .set("year", props)
-      .add("year", 12)
+      .add(4, "year")
+      .format("Y");
+    let lastten = moment()
+      .set("year", props)
+      .subtract(4, "year")
       .format("Y");
 
-    let tenyear = this.getDates(props, nextten);
-
+    let nextyears = this.getDates(props, nextten);
+    let lastyears = this.getDates(lastten, props);
+    let tenyear = [...lastyears, ...nextyears];
+    console.log(tenyear);
     tenyear.map(data => {
       months.push(
         <td

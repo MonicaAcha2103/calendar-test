@@ -54,9 +54,12 @@ export default class Scheduler extends React.Component {
         </h2>
         <div>
           {filterItem !== null ? (
-            <Timeline schedule={filterItem} />
+            <Timeline schedules={filterItem} />
           ) : (
-            <div>"No schedules"</div>
+            <div>
+              <h3>No Schedules for the day !</h3>
+              <Timeline schedules={(filterItem = [])} />
+            </div>
           )}
         </div>
       </div>
@@ -84,15 +87,3 @@ function checkDate(statedate, statemonth, stateyear) {
   }
   return null;
 }
-// function renderItems(filterItem) {
-//   // console.log(filterItem);
-//   return filterItem.map(i => {
-//     return (
-//       <div>
-//         <div>{i.startTime}</div>
-//         <div>{i.endTime}</div>
-//         <div>{i.title}</div>
-//       </div>
-//     );
-//   });
-// }
