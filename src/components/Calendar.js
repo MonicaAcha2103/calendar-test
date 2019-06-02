@@ -3,7 +3,7 @@ import moment from "moment";
 import Header from "./Header";
 import Scheduler from "./Scheduler";
 Header.defaultProps = {
-  title: "Scheduler"
+  title: "Schedule Your Day"
 };
 export default class Calendar extends React.Component {
   weekdayshort = moment.weekdaysShort();
@@ -163,7 +163,7 @@ export default class Calendar extends React.Component {
     let nextyears = this.getDates(props, nextten);
     let lastyears = this.getDates(lastten, props);
     let tenyear = [...lastyears, ...nextyears];
-    console.log(tenyear);
+
     tenyear.map(data => {
       months.push(
         <td
@@ -214,8 +214,6 @@ export default class Calendar extends React.Component {
         // console.log(
         //   "SELECTED DAY: ",
         //   this.state.selectedDay +
-        //     this.month() +
-        //     this.year() +
         //     this.state.selectedMonth +
         //     this.state.selectedYear
         // );
@@ -273,6 +271,7 @@ export default class Calendar extends React.Component {
     };
     return (
       <div className="container" style={{ width: "100%" }}>
+        <Header />
         <div className="tail-datetime-calendar">
           <div className="calendar-navi">
             <span

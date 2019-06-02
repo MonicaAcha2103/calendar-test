@@ -1,12 +1,14 @@
 .calendar {
   padding-top: 10px;
+  padding-bottom: 20px;
   width: 100vh;
 }
 .tail-datetime-calendar {
   width: 245px;
   height: auto;
-  margin: 60px;
+  margin: 0px;
   margin-left: -170px;
+  margin-top: -45px;
   padding: 0;
   display: block;
   overflow: hidden;

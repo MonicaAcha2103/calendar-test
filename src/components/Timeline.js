@@ -71,7 +71,7 @@ export default class Timeline extends React.Component {
       var odd = time.slice(-2).valueOf();
 
       rows.push(
-        <Row key={time} className={odd % 10 !== 0 ? "odd" : "even"}>
+        <Row className={odd % 10 !== 0 ? "odd" : "even"}>
           <TimeCell className="calendar__cell--time-col">{time}</TimeCell>
 
           <AppointmentCell appointment={block} />
@@ -149,9 +149,6 @@ const Appointment = props => {
         {appointment.title + `  `}
       </span>
       <span className="calendar__appointment__time">[{time}]</span>
-      <span className="right">edit</span>
-      <span className="right">cancel</span>
-      <span className="right">delete</span>
     </div>
   );
 };
