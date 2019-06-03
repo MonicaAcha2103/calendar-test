@@ -12,15 +12,11 @@ export default class Timeline extends React.Component {
     super(props);
     this.normalizeTimeBlocks(props.schedules);
   }
-  componentDidMount() {
-    // console.log(this.props.schedules);
-  }
   normalizeTimeBlocks = schedules => {
     const blockSize = 15;
     const timeBlocks = {};
     const eventBlocks = {};
     schedules.forEach(schedule => {
-      // let schedule = schedules[0];
       const startTime = moment(new Date(schedule.startTime)).format("HH:mm");
       const endTime = moment(new Date(schedule.endTime)).format("HH:mm");
       let blockSpan = 0;
@@ -137,12 +133,9 @@ const Appointment = props => {
 
   var startTime = moment(new Date(appointment.startTime)).format("HH:mm");
   var endTime = moment(new Date(appointment.endTime)).format("HH:mm");
-  // console.log(startTime);
-  // console.log(endTime);
   const wholeDay = startTime === "00:00" && endTime === "00:00";
 
-  const time = wholeDay ? "Todo el día" : `${startTime} - ${endTime}`;
-  // console.log(time);
+  const time = wholeDay ? "All day" : `${startTime} - ${endTime}`;
   return (
     <div {...props} className="calendar__appointment">
       <span className="calendar__appointment__name">
